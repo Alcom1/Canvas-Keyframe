@@ -7,9 +7,21 @@ var Animator = (function()
         animations = [];
     }
     
-    function addAnimation(fileName)
+    function loadAnimation(fileName)
     {
-        animations.push(new Animation(fileName));
+        var xhr = new XMLHttpRequest();
+        xhr.overrideMimeType("application/json");
+        xhr.onload = function()
+        {
+            Animator.addAnimation(xhr.responseText);
+        }
+        xhr.open('GET', fileName, true);
+        xhr.send();
+    }
+    
+    function addAnimation(text)
+    {
+        animations.push(new Animation(text));
     }
     
     function update(dt)
@@ -36,6 +48,7 @@ var Animator = (function()
     
     return {
         init : init,
+        loadAnimation : loadAnimation,
         addAnimation : addAnimation,
         update : update,
         draw : draw,

@@ -11,8 +11,6 @@ var main =
     ctx : undefined,			// Canvas context
    	lastTime : 0, 				// used by calculateDeltaTime() 
 	animationID : 0,			// ID index of the current frame.
-    anim : undefined,           // Animation JSON object
-    counter : 0,                // Time counter.
 	
     //Initialization
 	init : function()
@@ -29,23 +27,9 @@ var main =
 		this.ctx.msImageSmoothingEnabled = false;
 		this.ctx.imageSmoothingEnabled = false;
         
-        //Style
-        this.ctx.strokeStyle = "#FFF";
-        this.ctx.lineWidth = 4;
+        Animator.loadAnimation("js/animation_2.json");
         
-        //JASON!
-        var xhr = new XMLHttpRequest();
-        xhr.overrideMimeType("application/json");
-		xhr.onload = function()
-	    {
-            main.anim = JSON.parse(xhr.responseText);
-            console.log(main.anim);
-            
-            // start the game loop
-            main.frame();
-        }
-		xhr.open('GET', "js/animation_2.json", true);
-		xhr.send();
+        this.frame();
 	},
 	
 	//Core update
@@ -56,94 +40,17 @@ var main =
 	 	
 	 	//Calculate Delta Time of frame
 	 	var dt = this.calculateDeltaTime();
-        this.counter += dt;
 		
 		//Clear
 		this.ctx.save();
 		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
 		this.ctx.restore();
         
+        //Update
+        Animator.update(dt);
+        
         //Draw
-        this.ctx.save();
-        /*
-        this.ctx.translate(320, 240);
-        this.ctx.scale(2, 2);
-        this.ctx.rotate(45 * Math.PI / 180);
-        this.ctx.scale(2, 1);
-        this.ctx.translate(-75, - 50);
-        */
-        var temp = (this.counter * 1000) % this.anim.length;
-        for(var i = 0; i < this.anim.frames.length - 1; i++)
-        {
-            if(temp > this.anim.frames[i].time && temp < this.anim.frames[i + 1].time)
-            {
-                this.ctx.translate(
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].globe_tran[0], 
-                        this.anim.frames[i + 1].globe_tran[0]),
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].globe_tran[1], 
-                        this.anim.frames[i + 1].globe_tran[1]));
-                this.ctx.scale(
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].globe_scal[0], 
-                        this.anim.frames[i + 1].globe_scal[0]),
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].globe_scal[1], 
-                        this.anim.frames[i + 1].globe_scal[1]));
-                this.ctx.rotate(
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].globe_rota * Math.PI / 180, 
-                        this.anim.frames[i + 1].globe_rota * Math.PI / 180));
-                this.ctx.scale(
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].local_scal[0], 
-                        this.anim.frames[i + 1].local_scal[0]),
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].local_scal[1], 
-                        this.anim.frames[i + 1].local_scal[1]));
-                this.ctx.translate(
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].local_tran[0], 
-                        this.anim.frames[i + 1].local_tran[0]),
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].local_tran[1], 
-                        this.anim.frames[i + 1].local_tran[1]));
-                break;           
-            }
-        }
-        this.ctx.drawImage(
-            document.getElementById(this.anim.image_id),
-            0,
-            0);
-        this.ctx.restore();
+        Animator.draw(this.ctx);
 		
 		//Draw debug info
         this.fillText(
