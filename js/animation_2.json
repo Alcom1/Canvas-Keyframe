@@ -1,0 +1,30 @@
+{
+    "image_id" : "test",
+    "length" : 3000,
+    "frames" : [
+        {
+            "time" : 0,
+            "globe_tran" : [320, 240],
+            "globe_scal" : [1, 1],
+            "globe_rota" : -5,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -100]
+        },
+        {
+            "time" : 1500,
+            "globe_tran" : [320, 240],
+            "globe_scal" : [1, 1],
+            "globe_rota" : 5,
+            "local_scal" : [1, 0.8],
+            "local_tran" : [-75, -100]
+        },
+        {
+            "time" : 3000,
+            "globe_tran" : [320, 240],
+            "globe_scal" : [1, 1],
+            "globe_rota" : -5,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -100]
+        }     
+    ]
+}
