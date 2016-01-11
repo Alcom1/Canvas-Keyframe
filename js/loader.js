@@ -14,6 +14,9 @@ window.onload = function()
 {
 	console.log("window.onload called");
 	
-	//Main module
+    //Modules
+    Animator.init();
+    
+	//Main
 	main.init();
 }

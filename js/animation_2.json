@@ -8,8 +8,7 @@
             "globe_scal" : [1, 1],
             "globe_rota" : -5,
             "local_scal" : [2, 2],
-            "local_tran" : [-48, -95],
-            "local_rota" : 0
+            "local_tran" : [-48, -95]
         },
         {
             "time" : 1500,
@@ -17,8 +16,7 @@
             "globe_scal" : [1, 1],
             "globe_rota" : 5,
             "local_scal" : [2, 1.6],
-            "local_tran" : [-48, -95],
-            "local_rota" : 0
+            "local_tran" : [-48, -95]
         },
         {
             "time" : 3000,
@@ -26,8 +24,7 @@
             "globe_scal" : [1, 1],
             "globe_rota" : -5,
             "local_scal" : [2, 2],
-            "local_tran" : [-48, -95],
-            "local_rota" : 0
+            "local_tran" : [-48, -95]
         }     
     ]
 }

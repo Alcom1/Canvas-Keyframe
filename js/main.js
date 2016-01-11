@@ -136,13 +136,6 @@ var main =
                         this.anim.frames[i + 1].time, 
                         this.anim.frames[i].local_tran[1], 
                         this.anim.frames[i + 1].local_tran[1]));
-                this.ctx.rotate(
-                    map(
-                        temp, 
-                        this.anim.frames[i].time, 
-                        this.anim.frames[i + 1].time, 
-                        this.anim.frames[i].local_rota * Math.PI / 180, 
-                        this.anim.frames[i + 1].local_rota * Math.PI / 180));
                 break;           
             }
         }
