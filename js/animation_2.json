@@ -4,27 +4,30 @@
     "frames" : [
         {
             "time" : 0,
-            "globe_tran" : [320, 240],
+            "globe_tran" : [320, 220],
             "globe_scal" : [1, 1],
             "globe_rota" : -5,
-            "local_scal" : [1, 1],
-            "local_tran" : [-75, -100]
+            "local_scal" : [2, 2],
+            "local_tran" : [-48, -95],
+            "local_rota" : 0
         },
         {
             "time" : 1500,
-            "globe_tran" : [320, 240],
+            "globe_tran" : [320, 220],
             "globe_scal" : [1, 1],
             "globe_rota" : 5,
-            "local_scal" : [1, 0.8],
-            "local_tran" : [-75, -100]
+            "local_scal" : [2, 1.6],
+            "local_tran" : [-48, -95],
+            "local_rota" : 0
         },
         {
             "time" : 3000,
-            "globe_tran" : [320, 240],
+            "globe_tran" : [320, 220],
             "globe_scal" : [1, 1],
             "globe_rota" : -5,
-            "local_scal" : [1, 1],
-            "local_tran" : [-75, -100]
+            "local_scal" : [2, 2],
+            "local_tran" : [-48, -95],
+            "local_rota" : 0
         }     
     ]
 }

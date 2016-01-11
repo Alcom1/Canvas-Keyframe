@@ -25,6 +25,9 @@ var main =
 		this.canvas.width = this.WIDTH;
 		this.canvas.height = this.HEIGHT;
 		this.ctx = this.canvas.getContext('2d');
+		this.ctx.mozImageSmoothingEnabled = false;
+		this.ctx.msImageSmoothingEnabled = false;
+		this.ctx.imageSmoothingEnabled = false;
         
         //Style
         this.ctx.strokeStyle = "#FFF";
@@ -133,11 +136,20 @@ var main =
                         this.anim.frames[i + 1].time, 
                         this.anim.frames[i].local_tran[1], 
                         this.anim.frames[i + 1].local_tran[1]));
+                this.ctx.rotate(
+                    map(
+                        temp, 
+                        this.anim.frames[i].time, 
+                        this.anim.frames[i + 1].time, 
+                        this.anim.frames[i].local_rota * Math.PI / 180, 
+                        this.anim.frames[i + 1].local_rota * Math.PI / 180));
                 break;           
             }
         }
-        this.ctx.strokeRect(0, 0, 150, 100);
-        this.ctx.strokeRect(75, 50, 1, 1);
+        this.ctx.drawImage(
+            document.getElementById(this.anim.image_id),
+            0,
+            0);
         this.ctx.restore();
 		
 		//Draw debug info
