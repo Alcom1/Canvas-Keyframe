@@ -1,0 +1,62 @@
+{
+    "image_id" : "test",
+    "length" : 3000,
+    "frames" : [
+        {
+            "time" : 0,
+            "globe_tran" : [320, 0],
+            "globe_scal" : [1, 1],
+            "globe_rota" : 0,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -50]
+        },
+        {
+            "time" : 500,
+            "globe_tran" : [320, 160],
+            "globe_scal" : [1, 1],
+            "globe_rota" : 90,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -50]
+        },
+        {
+            "time" : 1000,
+            "globe_tran" : [320, 320],
+            "globe_scal" : [3, 3],
+            "globe_rota" : 0,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -50]
+        },
+        {
+            "time" : 1500,
+            "globe_tran" : [320, 480],
+            "globe_scal" : [1, 1],
+            "globe_rota" : 0,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -50]
+        },
+        {
+            "time" : 2000,
+            "globe_tran" : [320, 320],
+            "globe_scal" : [2, 2],
+            "globe_rota" : 0,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -50]
+        },
+        {
+            "time" : 2500,
+            "globe_tran" : [320, 160],
+            "globe_scal" : [1, 1],
+            "globe_rota" : 180,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -50]
+        },
+        {
+            "time" : 3000,
+            "globe_tran" : [320, 0],
+            "globe_scal" : [1, 1],
+            "globe_rota" : 360,
+            "local_scal" : [1, 1],
+            "local_tran" : [-75, -50]
+        }    
+    ]
+}
