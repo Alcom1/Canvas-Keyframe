@@ -27,7 +27,7 @@ var main =
 		this.ctx.msImageSmoothingEnabled = false;
 		this.ctx.imageSmoothingEnabled = false;
         
-        Animator.loadAnimation("js/animation_2.json");
+        Animator.loadAnimation("js/animation.json");
         
         this.frame();
 	},
